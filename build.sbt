@@ -1,12 +1,21 @@
-name := """akkademy-db-java"""
-version := "1.0"
-scalaVersion := "2.11.6"
-scalaSource in Test := baseDirectory.value / "test"
+name := "akkademy-db-scala"
+
+organization := "com.akkademy-db"
+
+version := "0.0.1-SNAPSHOT"
+
+scalaVersion := "2.11.1"
+
+
+
 libraryDependencies ++= Seq(
-"com.typesafe.akka" %% "akka-actor" % "2.3.6",
-"com.typesafe.akka" %% "akka-testkit" % "2.3.6" % "test",
-"junit" % "junit" % "4.11" % "test",
-"com.novocode" % "junit-interface" % "0.10" % "test"
+  "com.typesafe.akka" %% "akka-agent" % "2.3.6",
+  "com.typesafe.akka" %% "akka-actor" % "2.3.6",
+  "com.typesafe.akka" %% "akka-remote" % "2.3.6",
+  "com.typesafe.akka" %% "akka-testkit" % "2.3.6" % "test",
+  "org.scalatest" %% "scalatest" % "2.1.6" % "test"
 )
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+
+mappings in (Compile, packageBin) ~= { _.filterNot { case (_, name) =>
+  Seq("application.conf").contains(name)
+}}

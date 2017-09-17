@@ -4,7 +4,8 @@ import org.scalatest.{BeforeAndAfterEach, FunSpecLike, Matchers}
 import akka.actor.ActorSystem
 import com.akkademy.messages.SetRequest
 import akka.testkit.TestActorRef
-import scala.concurrent.duration.*
+import scala.concurrent.duration._
+
 
 class AkkademyDbSpec extends FunSpecLike with Matchers with BeforeAndAfterEach {
 implicit val system = ActorSystem()
