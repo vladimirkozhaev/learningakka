@@ -10,7 +10,7 @@ import scala.concurrent.{Promise, Await, Future}
 class ScalaAskExamplesTest extends FunSpecLike with Matchers {
 
   val system = ActorSystem()
-  implicit val timeout = Timeout(5)
+  implicit val timeout = Timeout(5 seconds)
   val pongActor = system.actorOf(Props(classOf[ScalaPongActor]))
   describe("Pong actor") {
     it("should respond with Pong") {
